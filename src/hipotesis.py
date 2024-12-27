@@ -24,7 +24,7 @@ def hipotesis_1(data):
     plt.show()
 
 # Hipótesis 2
-def hipotesis_2(data):
+def hipotesis_2_1(data):
    #Gráfico 1
     plt.figure(figsize=(18, 6))
 
@@ -42,7 +42,12 @@ def hipotesis_2(data):
     plt.subplot(1, 3, 3)
     sns.boxplot(data=data, x='parental_level_of_education', y='writing_score', palette='Set2')
     plt.title('Writing Score por Parental Level of Education')
+    
+    plt.tight_layout()
+    plt.show()
 
+    
+def hipotesis_2_2(data):
     #Gráfico 2
     # Promedio de puntajes por nivel educativo de los padres
     mean_scores_by_parent_education = data.groupby('parental_level_of_education')[['math_score', 'reading_score', 'writing_score']].mean()
@@ -59,7 +64,7 @@ def hipotesis_2(data):
     plt.show()
 
 # Hipótesis 3
-def hipotesis_3(data):
+def hipotesis_3_1(data):
     #Gráfico 1
     plt.figure(figsize=(18, 6))
     
@@ -81,6 +86,7 @@ def hipotesis_3(data):
     plt.tight_layout()
     plt.show()
 
+def hipotesis_3_2(data):
     #Gráfico 2
     mean_scores_by_prep_course = data.groupby('test_preparation_course')[['math_score', 'reading_score', 'writing_score']].mean()
     mean_scores_by_prep_course.plot(kind='bar', figsize=(10, 6), color=['lightblue', 'orange', 'lightgreen'])
@@ -93,7 +99,7 @@ def hipotesis_3(data):
     plt.show()
 
 # Hipótesis 4
-def hipotesis_4(data):
+def hipotesis_4_1(data):
     #Gráfico 1
     plt.figure(figsize=(18, 6))
 
@@ -115,6 +121,7 @@ def hipotesis_4(data):
     plt.tight_layout()
     plt.show()
 
+def hipotesis_4_2(data):
     #Gráfico 2
     plt.figure(figsize=(18, 6))
     sns.violinplot(data=data, x='lunch', y='math_score', palette='Set1', inner='quartile')
@@ -125,7 +132,7 @@ def hipotesis_4(data):
     plt.show()
 
 # Hipótesis 5
-def hipotesis_5(data):
+def hipotesis_5_1(data):
     #Gráfico 1
     plt.figure(figsize=(18, 6))
 
@@ -147,6 +154,7 @@ def hipotesis_5(data):
     plt.tight_layout()
     plt.show()
 
+def hipotesis_5_2(data):
     #Gráfico 2
     mean_scores_by_ethnicity = data.groupby('race_ethnicity')[['math_score', 'reading_score', 'writing_score']].mean()
     mean_scores_by_ethnicity.plot(kind='bar', figsize=(10, 6), stacked=True, color=['purple', 'gold', 'teal'])
@@ -158,6 +166,7 @@ def hipotesis_5(data):
     plt.xticks(rotation=45)
     plt.show()
 
+def hipotesis_5_3(data):
     #Gráfico 3
     plt.figure(figsize=(18, 6))
     sns.swarmplot(data=data, x='race_ethnicity', y='math_score', hue='gender', palette='Set2', dodge=True)
