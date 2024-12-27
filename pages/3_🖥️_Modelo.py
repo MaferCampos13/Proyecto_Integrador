@@ -57,8 +57,8 @@ try:
         # Mostrar resultados utilizando métricas
         st.title('Resultados del modelo de Machine Learning:')
         col1, col2 = st.columns(2)
-        col1.metric('Mean Squared Error', mse, f"{mse:.4f}", border=True)
-        col2.metric('R^2 Score', r2, f"{r2:.4f}", border=True)
+        col1.metric('Mean Squared Error', mse, border=True)
+        col2.metric('R^2 Score', r2, border=True)
 
 except FileNotFoundError:
     st.error('No se encontró el archivo de datos. Por favor, asegúrese de que el archivo seleccionado es correcto.')
