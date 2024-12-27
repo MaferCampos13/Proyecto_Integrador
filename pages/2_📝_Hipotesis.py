@@ -37,7 +37,8 @@ st.pyplot(fig_h3_2, use_container_width=True)
 
 # Hipótesis 4
 st.header('Hipótesis 4: El tipo de almuerzo influye en el rendimiento académico')
-fig_h4_1= hipotesis_4_1(df)
+
+fig_h4_1 = hipotesis_4_1(df)
 st.pyplot(fig_h4_1, use_container_width=True)
 
 fig_h4_2 = hipotesis_4_2(df)

@@ -4,67 +4,67 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def plot_heatmap(df):
-    plt.figure(figsize=(10, 6))
-    correlation_matrix = df.select_dtypes(include=np.number).corr()  
-    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
-    plt.title('Mapa de Correlación', fontsize=14)
-    plt.show()
+    fig, ax = plt.subplots(figsize=(10, 6))
+    correlation_matrix = df.select_dtypes(include=np.number).corr()
+    sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5, ax=ax)
+    ax.set_title('Mapa de Correlación', fontsize=14)
+    return fig
 
 def plot_countplot(df):
-    plt.figure(figsize=(8, 5))
-    sns.countplot(data=df, x='race_ethnicity', palette='husl')
-    plt.title('Conteo de Valores por Clase: Race ethnicity', fontsize=14)
-    plt.xlabel('Clase', fontsize=12)
-    plt.ylabel('Frecuencia', fontsize=12)
-    plt.show()
-
+    fig, ax = plt.subplots(figsize=(8, 5))
+    sns.countplot(data=df, x='race_ethnicity', palette='husl', ax=ax)
+    ax.set_title('Conteo de Valores por Clase: Race ethnicity', fontsize=14)
+    ax.set_xlabel('Clase', fontsize=12)
+    ax.set_ylabel('Frecuencia', fontsize=12)
+    return fig
 
 def plot_histplot(df):
-    plt.figure(figsize=(8, 5))
-    sns.histplot(df['math_score'], kde=True, bins=20, color='skyblue')
-    plt.title('Distribución de las Notas Finales', fontsize=14) 
-    plt.xlabel('Notas', fontsize=12) 
-    plt.ylabel('Frecuencia', fontsize=12)
-    plt.show()
+    fig, ax = plt.subplots(figsize=(8, 5))
+    sns.histplot(df['math_score'], kde=True, bins=20, color='skyblue', ax=ax)
+    ax.set_title('Distribución de las Notas Finales', fontsize=14)
+    ax.set_xlabel('Notas', fontsize=12)
+    ax.set_ylabel('Frecuencia', fontsize=12)
+    return fig
 
 def plot_boxplot(df):
-    plt.figure(figsize=(8, 5))
-    sns.boxplot(data=df, x='gender', y='math_score', palette='pastel')  
-    plt.title('Rendimiento por Género', fontsize=14)
-    plt.xlabel('Género', fontsize=12)
-    plt.ylabel('Notas', fontsize=12)
-    plt.show()
+    fig, ax = plt.subplots(figsize=(8, 5))
+    sns.boxplot(data=df, x='gender', y='math_score', palette='pastel', ax=ax)
+    ax.set_title('Rendimiento por Género', fontsize=14)
+    ax.set_xlabel('Género', fontsize=12)
+    ax.set_ylabel('Notas', fontsize=12)
+    return fig
 
 def plot_scatterplot(df):
-    plt.figure(figsize=(8, 5))
-    sns.scatterplot(data=df, x='test_preparation_course', y='math_score', hue='gender', style='gender', palette='Set2') 
-    plt.title('Relación entre el Curso de preparación para el test y Notas', fontsize=14)
-    plt.xlabel('Horas de Estudio', fontsize=12)
-    plt.ylabel('Notas', fontsize=12)
-    plt.show()
+    fig, ax = plt.subplots(figsize=(8, 5))
+    sns.scatterplot(data=df, x='test_preparation_course', y='math_score', hue='gender', style='gender', palette='Set2', ax=ax)
+    ax.set_title('Relación entre el Curso de preparación para el test y Notas', fontsize=14)
+    ax.set_xlabel('Horas de Estudio', fontsize=12)
+    ax.set_ylabel('Notas', fontsize=12)
+    return fig
 
 def plot_barplot(df):
-    plt.figure(figsize=(12, 5))
-    sns.barplot(data=df, x='parental_level_of_education', y='math_score', palette='pastel', ci=None) 
-    plt.title('Rendimiento por Nivel de Educación de los Padres', fontsize=14)
-    plt.xlabel('Nivel de Educación', fontsize=12)
-    plt.ylabel('Notas', fontsize=12)
-    plt.xticks(rotation=45)
-    plt.show()
+    fig, ax = plt.subplots(figsize=(12, 5))
+    sns.barplot(data=df, x='parental_level_of_education', y='math_score', palette='pastel', ci=None, ax=ax)
+    ax.set_title('Rendimiento por Nivel de Educación de los Padres', fontsize=14)
+    ax.set_xlabel('Nivel de Educación', fontsize=12)
+    ax.set_ylabel('Notas', fontsize=12)
+    ax.tick_params(axis='x', rotation=45)
+    return fig
 
 def plot_violinplot(df):
-    plt.figure(figsize=(8, 5))
-    sns.violinplot(data=df, x='race_ethnicity', y='math_score', palette='muted')  
-    plt.title('Distribución de Notas por Estatus Social', fontsize=14)
-    plt.xlabel('Estatus Social', fontsize=12)
-    plt.ylabel('Notas', fontsize=12)
-    plt.show()
+    fig, ax = plt.subplots(figsize=(8, 5))
+    sns.violinplot(data=df, x='race_ethnicity', y='math_score', palette='muted', ax=ax)
+    ax.set_title('Distribución de Notas por Identidad Étnica', fontsize=14)
+    ax.set_xlabel('Estatus Social', fontsize=12)
+    ax.set_ylabel('Notas', fontsize=12)
+    return fig
 
 def plot_scatter(df, x_column, y_column):
-    plt.figure(figsize=(8, 5))
-    sns.scatterplot(data=df, x=x_column , y=y_column , color='skyblue')
-    plt.title('Relación entre las variables', fontsize=14)
-    plt.xlabel(x_column, fontsize=12)
-    plt.ylabel(y_column, fontsize=12)
-    plt.show()
+    fig, ax = plt.subplots(figsize=(8, 5))
+    sns.scatterplot(data=df, x=x_column, y=y_column, color='skyblue', ax=ax)
+    ax.set_title('Relación entre las variables', fontsize=14)
+    ax.set_xlabel(x_column, fontsize=12)
+    ax.set_ylabel(y_column, fontsize=12)
+    return fig
+
 

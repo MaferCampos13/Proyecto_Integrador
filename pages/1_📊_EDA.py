@@ -27,8 +27,8 @@ with st.container():
         st.metric('Número de Duplicados', df.duplicated().sum(), border=True)
     
 # Visualización de la Información del Conjunto de Datos
-st.header('Visualización de la Información del Conjunto de Datos')
-st.write(df.info())
+st.header('Visualización de las Dimensiones del Conjunto de Datos')
+st.write(df.shape)
 
 # Visualización de las Primeras Filas del Conjunto de Datos
 st.header('Visualización de las Primeras Filas del Conjunto de Datos')
@@ -41,36 +41,36 @@ st.write(df.describe())
 # Mostrar gráficos
 st.header('Correlación entre Variables Numéricas')
 heatmap_fig = plot_heatmap(df) 
-st.pyplot(heatmap_fig)
+st.pyplot(heatmap_fig, use_container_width=True)
 
 st.header('Conteo de Valores por Clase "Race Ethnicity"')
 countplot_fig = plot_countplot(df)
-st.pyplot(countplot_fig)
+st.pyplot(countplot_fig, use_container_width=True)
 
 st.header('Distribución de las Notas Finales')
 histplot_fig = plot_histplot(df)
-st.pyplot(histplot_fig)
+st.pyplot(histplot_fig, use_container_width=True)
 
 st.header('Rendimiento por Género')
 boxplot_fig = plot_boxplot(df)
-st.pyplot(boxplot_fig)
+st.pyplot(boxplot_fig, use_container_width=True)
 
-st.header('Relación entre el Curso de preparación para el test y Notas')
+st.header('Relación entre el Curso de Preparación para el Test y Notas')
 scatterplot_fig = plot_scatterplot(df)
-st.pyplot(scatterplot_fig)
+st.pyplot(scatterplot_fig, use_container_width=True)
 
 st.header('Rendimiento por Nivel de Educación de los Padres')
 barplot_fig = plot_barplot(df)
-st.pyplot(barplot_fig)
+st.pyplot(barplot_fig, use_container_width=True)
 
-st.header('Distribución de Notas por Estatus Social')
+st.header('Distribución de Notas por Identidad Étnica')
 violinplot_fig = plot_violinplot(df)
-st.pyplot(violinplot_fig)
+st.pyplot(violinplot_fig, use_container_width=True)
 
 st.header('Relación entre las variables')
 x_column = st.selectbox('Seleccione la variable X:', df.columns)
 y_column = st.selectbox('Seleccione la variable Y:', df.columns)
 
 scatter_fig = plot_scatter(df, x_column, y_column)
-st.pyplot(scatter_fig)
+st.pyplot(scatter_fig, use_container_width=True)
 
